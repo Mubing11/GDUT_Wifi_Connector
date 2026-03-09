@@ -69,8 +69,9 @@ def click():
     success = connect(username, password)
 
     if success:
-        info.config(text="连接成功！", fg="green")
+        info.config(text="连接成功！本软件将在3秒后关闭...", fg="green")
         save(username, password)
+        root.after(3000, root.destroy)
     else: 
         info.config(text="连接失败，请检查账号密码或网络状态。", fg="red")
 
@@ -101,7 +102,10 @@ if config:
     user.insert(0, config.get("username", ""))
     pwd.delete(0, tk.END)
     pwd.insert(0, config.get("password", ""))
-    info.config(text="已自动填充保存的账号", fg="green")
+
+    info.config(text="已读取账号，正在准备自动拨号...", fg="green")
+
+    root.after(1000, click) 
 
 try:
     check()
