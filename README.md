@@ -1,0 +1,2 @@
+# GDUT_Wifi_Connector
+一款简洁优雅的校园网一键拨号工具
